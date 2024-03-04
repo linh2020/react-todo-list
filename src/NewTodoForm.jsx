@@ -3,6 +3,7 @@ import { useState } from "react";
 export default function NewTodoForm({ addTodo }) {
   const [newItem, setNewItem] = useState("");
 
+  //   handleTodos
   function handleTodos(e) {
     e.preventDefault();
     if (newItem === "") return;
@@ -14,7 +15,6 @@ export default function NewTodoForm({ addTodo }) {
     // ]);
 
     setNewItem("");
-    //
   }
 
   return (
