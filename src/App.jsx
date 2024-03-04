@@ -8,6 +8,7 @@ export default function App() {
   //
   function handleTodos(e) {
     e.preventDefault();
+
     setTodos([
       ...todos,
       { id: crypto.randomUUID(), title: newItem, completed: false },
