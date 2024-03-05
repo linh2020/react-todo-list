@@ -1,23 +1,20 @@
-export default function TodoItem({
-  completed,
-  id,
-  title,
-  handleToggleTodo,
-  handleDelete,
-}) {
+export default function TodoItem({ tasks }) {
   return (
-    <li>
-      <label>
-        <input
-          type="checkbox"
-          checked={completed}
-          onChange={(e) => handleToggleTodo(id, e.target.checked)}
-        />
-        {title}
-      </label>
-      <button className="btn btn-danger" onClick={() => handleDelete(id)}>
-        Delete
-      </button>
-    </li>
+    <>
+      <p>Todo List</p>
+      <ul>
+        {tasks.map((task) => {
+          return (
+            <li key={task.id}>
+              <label htmlFor="item">
+                <input type="checkbox" id="item" />
+                {task.title}
+              </label>
+              <button>Delete</button>
+            </li>
+          );
+        })}
+      </ul>
+    </>
   );
 }

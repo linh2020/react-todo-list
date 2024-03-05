@@ -1,34 +1,37 @@
 import { useState } from "react";
 
-export default function NewTodoForm({ addTodo }) {
+export default function NewToDoForm({ tasks, handleAddTasks }) {
   const [newItem, setNewItem] = useState("");
 
-  function handleTodos(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (newItem === "") return;
-    addTodo(newItem);
 
-    // setTodos([
-    //   ...todos,
-    //   { id: crypto.randomUUID(), title: newItem, completed: false },
-    // ]);
+    handleAddTasks(newItem);
 
     setNewItem("");
-    //
-  }
+  };
+
+  const handleAddTodo = (e) => {
+    setNewItem(e.target.value);
+    // console.log(newItem);
+  };
+
+  console.log(tasks);
 
   return (
-    <form className="new-item-form" onSubmit={handleTodos}>
-      <div className="form-row">
-        <label htmlFor="item">New Item</label>
-        <input
-          type="text"
-          id="item"
-          value={newItem}
-          onChange={(e) => setNewItem(e.target.value)}
-        />
-      </div>
-      <button className="btn">Add</button>
-    </form>
+    <>
+      <form className="" onSubmit={handleSubmit}>
+        <label htmlFor="item">
+          New Item
+          <input
+            type="text"
+            id="item"
+            value={newItem}
+            onChange={handleAddTodo}
+          />
+        </label>
+        <button>Add</button>
+      </form>
+    </>
   );
 }
