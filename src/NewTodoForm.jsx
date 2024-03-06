@@ -1,6 +1,7 @@
 import { useState } from "react";
+import "./styles.css";
 
-export default function NewToDoForm({ tasks, handleAddTasks }) {
+export default function NewToDoForm({ handleAddTasks }) {
   const [newItem, setNewItem] = useState("");
 
   const handleSubmit = (e) => {
@@ -16,21 +17,21 @@ export default function NewToDoForm({ tasks, handleAddTasks }) {
     // console.log(newItem);
   };
 
-  console.log(tasks);
+  // console.log(tasks);
 
   return (
     <>
-      <form className="" onSubmit={handleSubmit}>
-        <label htmlFor="item">
-          New Item
+      <form className="new-item-form" onSubmit={handleSubmit}>
+        <div className="form-row">
+          <label htmlFor="item">New Item</label>
           <input
             type="text"
             id="item"
             value={newItem}
             onChange={handleAddTodo}
           />
-        </label>
-        <button>Add</button>
+        </div>
+        <button className="btn">Add</button>
       </form>
     </>
   );
